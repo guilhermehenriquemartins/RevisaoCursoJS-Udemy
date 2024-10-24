@@ -38,6 +38,12 @@ p {
   margin-bottom: 7px;
 }
 
+input[type='text'], input[type='number'] {
+  border: none;
+  outline: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 1px 0px 1px 3px;
+}
+
 input[type='submit'] {
   margin-top: 5px;
   background-color: black;
