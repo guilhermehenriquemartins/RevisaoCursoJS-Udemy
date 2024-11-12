@@ -8,15 +8,14 @@
 // Use a funçao com números de 0 a 100
 
 function fizzBuzz(numero) {
-  if (typeof numero != 'number') return numero
-  if (numero % 3 === 0 && numero % 5 === 0) return 'FizzBuzz'
-  if (numero % 3 === 0) return 'Fizz'
-  if (numero % 5 === 0) return 'Buzz'
+  if (typeof numero !== 'number') return numero
+  if (numero % 3 == 0 && numero % 5 == 0) return 'FizzBuzz'
+  if (numero % 3 == 0) return 'Fizz'
+  if (numero % 5 == 0) return 'Buzz'
   return numero
 }
 
 console.log('a', fizzBuzz('a'))
-
 for (c = 0; c <= 100; c++) {
   console.log(c, fizzBuzz(c))
 }
