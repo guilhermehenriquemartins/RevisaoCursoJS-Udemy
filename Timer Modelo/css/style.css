@@ -88,3 +88,7 @@ button {
   color: black;
   transition-duration: .1s;
 }
+
+.pausado {
+  color: red;
+}
