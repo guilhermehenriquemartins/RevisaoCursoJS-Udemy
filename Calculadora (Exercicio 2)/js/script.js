@@ -1,38 +1,36 @@
-function criaCalculadora() {
-  return {
-    display: document.querySelector('.display'),
+function Calculadora() {
+  this.display = document.querySelector('.display')
 
-    inicia() {
-      this.cliqueBotao()
-    },
+  this.inicia = function() {
+    this.cliqueBotao()
+  }
 
-    cliqueBotao() {
-      document.addEventListener('click', e => {
-        const el = e.target
+  this.cliqueBotao = function() {
+    document.addEventListener('click', e => {
+      const el = e.target
 
-        if (el.classList.contains('btn-num')) {
-          this.btnParaDisplay(el.innerText)
-        }
-      })
-    },
+      if (el.classList.contains('btn-num')) {
+        this.btnParaDisplay(el.innerText)
+      }
+    })
+  }
 
-    btnParaDisplay(valor) {
-      this.display.value += valor
-    },
+  this.btnParaDisplay = function(valor) {
+    this.display.value += valor
+  }
 
-    clearDisplay() {
-      'apagar display'
-    },
+  this.clearDisplay = function() {
 
-    apagaUm() {
-      'apagar um número'
-    },
+  }
 
-    realizaConta() {
-      'realizar conta'
-    }
+  this.apagaUm = function() {
+
+  }
+
+  this.retornaResultado = function() {
+
   }
 }
 
-const calculadora = criaCalculadora()
+const calculadora = new Calculadora()
 calculadora.inicia()
