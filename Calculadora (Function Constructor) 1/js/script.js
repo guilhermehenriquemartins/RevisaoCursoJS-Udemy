@@ -1,4 +1,4 @@
-function Calculadora() {
+function Calculadora() {  //Faz o papel do molde
   const display = document.querySelector('.display')
 
   this.inicia = function() {
@@ -56,5 +56,5 @@ function Calculadora() {
   }
 }
 
-const calculadora = new Calculadora()
+const calculadora = new Calculadora() //Use o molde Calculadora para criar um novo 'new' objeto de Calculadora
 calculadora.inicia()
