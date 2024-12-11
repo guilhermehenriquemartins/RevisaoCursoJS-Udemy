@@ -1,38 +1,37 @@
-//COMO COPIAR UM OBJETO PARA O OUTRO:
+//COMO COPIAR UM OBJETO PARA OUTRO 1:
+const obj = {nome: 'Guilherme', sobrenome: 'Henrique', idade: 25, profissao: 'Eng Front-End'}
+const pessoa1 = {...obj, cidade: 'Santo André'}
 
-const objeto1 = {nome: 'Caneca', preco: 30.9, estoque: 5}
-const objeto2 = {...objeto1, descricao: 'Caneca preta personalizada'}
+//COMO COPIAR UM OBJETO PARA OUTRO 2:
+const guitarra = {nome: 'Guitarra Elétrica Strato Power Premium Phx Creme St-h Alv Ch', descricao: 'Desfrute com a guitarra PHX Guitarra da conexão com a música. Com este instrumento você vai descobrir novos acordes, cantar suas canções e curtirá da vida musical. Explore, amplifique sua criatividade e desenvolva a sua paixão.', preco: 945, estoque: 3}
 
-console.log(objeto1)
+const guitarra2 = Object.assign({}, guitarra, { cor: 'Creme' })
 
-//COMO COPIAR UM OBJETO PARA O OUTRO 2:
+//COMO COPIAR UM OBJETO PARA OUTRO 3:
+const violino = { nome: 'Violino Arco Breu Cavalete Acústico 4/4 Madeira Estojo Luxo', descricao: 'O Violino 4/4 Profissional Dominante é um instrumento de alta qualidade, este violino sendo ideal para músicos experientes e estudantes que buscam um produto de alto nível, solistas e instrumentistas de orquestra que procuram um som rico e expressivo, e para violinistas apaixonados que apreciam a beleza e qualidade de um produto profissional.', preco: 339, estoque: 50 }
 
-const objeto3 = {nome: 'Caneca', preco: 30.9, estoque: 7}
-const objeto4 = Object.assign({}, objeto3, {descricao: 'Caneca cor azul marinho'})
+const violino2 = { nome: violino.nome, descricao: violino.descricao, preco: violino.preco, estoque: violino.estoque, bônus: 'Acompanha Estojo (Case)' }
 
-console.log(objeto4)
+//C0MO CONSULTAR O DESCRITOR DAS PROPRIEDADES:
+console.log(Object.getOwnPropertyDescriptor(pessoa1, 'cidade'))
 
-//COMO COPIAR UM OBJETO PARA O OUTRO 3:
+//VENDO VALORES DE UM OBJETO
+console.log(Object.values(guitarra))
 
-const objeto5 = {nome: 'Caneca', preco: 30.9, estoque: 9}
-const objeto6 = {nome: objeto5.nome, preco: objeto5.preco}
+//VENDO AS CHAVES E VALORES DE UM OBJETO EM ARRAY
+console.log(Object.entries(violino2))
 
-console.log(objeto6)
+//ITERAR SOBRE AS CHAVES E VALORES MODO 1:
+for (entry of Object.entries(pessoa1)) {
+  console.log(entry)
+}
 
-//COMO CONSULTAR O DESCRITOR DAS PROPRIEDADES:
+//ITERAR SOBRE AS CHAVES E VALORES MODO 2:
+for ([valor, chave] of Object.entries(pessoa1)) {
+  console.log(valor, chave)
+}
 
-console.log(Object.getOwnPropertyDescriptors(objeto6, 'preco'))
-
-//VENDO VALORES DE UM OBJETO:
-
-console.log(Object.values(objeto6))
-
-//VENDO AS CHAVES E VALORES DO OBJETO EM ARRAY:
-
-console.log(Object.entries(objeto6))
-
-//ITERANDO SOBRE CHAVES E VALORES DO OBJETO:
-
-for (valor of Object.entries(objeto5)) {
+//ITERAR SOBRE AS CHAVES E VALORES MODO 3:
+for (valor of Object.entries(pessoa1)) {
   console.log(valor[0], valor[1])
 }
