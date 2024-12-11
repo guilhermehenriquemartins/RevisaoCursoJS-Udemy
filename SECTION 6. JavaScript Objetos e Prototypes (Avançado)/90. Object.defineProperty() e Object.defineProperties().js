@@ -1,22 +1,39 @@
-function Produto(titulo, descricao, valor, estoque) {
-  this.titulo = titulo
+function Produto(nome, descricao, preco, estoque) {
+  this.nome = nome
   this.descricao = descricao
   Object.defineProperties(this, {
-    valor: {
+    preco: {
       enumerable: true,
-      value: valor,
-      writable: true,
-      configurable: false,
+      get: function() {
+        return preco
+      },
+
+      set: function(valor) {
+        if(typeof valor !== 'number') {
+          throw new TypeError('Valor Inválido')
+        }
+        preco = valor
+      },
+      configurable: false
     },
     estoque: {
       enumerable: true,
-      value: estoque,
-      writable: true,
-      configurable: false,
+      get: function() {
+        return estoque
+      },
+      
+      set: function(valor) {
+        if(typeof valor !== 'number') {
+          throw new TypeError('Valor Inválido')
+        }
+        estoque = valor
+      },
+      configurable: false
     }
   })
 }
 
-const produto1 = new Produto('Calota Aro 13 Corsa Classic', 'Calota Aro 13 Celta Corsa Classic Prisma\nAPLICÁVEL PARA: LINHA ARO 13 TODOS\nAcompanha Emblema RESINADO GM\nModelo Lançamento Aro 13\nLINHA DE APLICAÇÃO: GM ARO 13\nCalota Aro: 13\nPeso: 0,220\nInstalação por PARAFUSOS\n*Fabricado em PP\n*Aro 13\n*Fácil instalação\nValor Referente ao Jogo.\nGarantia do vendedor: 90 dias', 78.90, 5)
+const Violao = new Produto('Violão Acústico Konig Para Destro Classic Verniz Corda Nylon', 'Desfrute com este violão Konig da conexão com a música. Ele é projetado para amadores e profissionais. Com este instrumento você vai descobrir novos acordes, cantar suas canções e vai desfrutar da vida musical. Cordas de nylon e mede 39" (99,06cm)', 249.90, 5)
+Violao.estoque = 10
 
-console.log(produto1)
+console.log(Violao.estoque)
