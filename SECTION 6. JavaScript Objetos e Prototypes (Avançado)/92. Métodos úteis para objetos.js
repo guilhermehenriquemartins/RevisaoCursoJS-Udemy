@@ -1,37 +1,36 @@
-//COMO COPIAR UM OBJETO PARA OUTRO 1:
-const obj = {nome: 'Guilherme', sobrenome: 'Henrique', idade: 25, profissao: 'Eng Front-End'}
-const pessoa1 = {...obj, cidade: 'Santo André'}
+//COMO COPIAR UM OBJETO PARA OUTRO - MODO 1
+const tenis1 = {nome: 'Tênis Masculino Caminhada', tamanho: 38, cor: 'Azul'}
+const tenis2 = {...tenis1}
+tenis2.tamanho = 39
 
-//COMO COPIAR UM OBJETO PARA OUTRO 2:
-const guitarra = {nome: 'Guitarra Elétrica Strato Power Premium Phx Creme St-h Alv Ch', descricao: 'Desfrute com a guitarra PHX Guitarra da conexão com a música. Com este instrumento você vai descobrir novos acordes, cantar suas canções e curtirá da vida musical. Explore, amplifique sua criatividade e desenvolva a sua paixão.', preco: 945, estoque: 3}
+//COMO COPIAR UM OBJETO PARA OUTRO - MODO 2
+const bone1 = {nome: 'Boné Masculino Trucker', cor: 'Preto Com Verde'}
+const bone2 = Object.assign({}, bone1, {cor: 'Preto Com Vermelho'})
 
-const guitarra2 = Object.assign({}, guitarra, { cor: 'Creme' })
+//COMO COPIAR UM OBJETO PARA OUTRO - MODO 3
+const relogio1 = {nome: 'Relógio Smartwatch Qcy Gt S8 Tela Amoled Bluetooth Ipx8', corPulseira: 'Preto', versão: 'Sport'}
+const relogio2 = {nome: relogio1.nome, corPulseira: 'Vermelho', versão: relogio1.versão}
 
-//COMO COPIAR UM OBJETO PARA OUTRO 3:
-const violino = { nome: 'Violino Arco Breu Cavalete Acústico 4/4 Madeira Estojo Luxo', descricao: 'O Violino 4/4 Profissional Dominante é um instrumento de alta qualidade, este violino sendo ideal para músicos experientes e estudantes que buscam um produto de alto nível, solistas e instrumentistas de orquestra que procuram um som rico e expressivo, e para violinistas apaixonados que apreciam a beleza e qualidade de um produto profissional.', preco: 339, estoque: 50 }
-
-const violino2 = { nome: violino.nome, descricao: violino.descricao, preco: violino.preco, estoque: violino.estoque, bônus: 'Acompanha Estojo (Case)' }
-
-//C0MO CONSULTAR O DESCRITOR DAS PROPRIEDADES:
-console.log(Object.getOwnPropertyDescriptor(pessoa1, 'cidade'))
+//COMO CONSULTAR OS DESCRITORES DE UMA PROPRIEDADE
+console.log(Object.getOwnPropertyDescriptors(relogio1, 'nome'))
 
 //VENDO VALORES DE UM OBJETO
-console.log(Object.values(guitarra))
+console.log(Object.values(relogio2))
 
 //VENDO AS CHAVES E VALORES DE UM OBJETO EM ARRAY
-console.log(Object.entries(violino2))
+console.log(Object.entries(tenis1))
 
-//ITERAR SOBRE AS CHAVES E VALORES MODO 1:
-for (entry of Object.entries(pessoa1)) {
+//ITERANDO SOBRE AS CHAVES E VALORES DE UM ARRAY - MODO 1
+for (entry of Object.entries(tenis1)) {
   console.log(entry)
 }
 
-//ITERAR SOBRE AS CHAVES E VALORES MODO 2:
-for ([valor, chave] of Object.entries(pessoa1)) {
-  console.log(valor, chave)
+//ITERANDO SOBRE AS CHAVES E VALORES DE UM ARRAY - MODO 2
+for([chave, valor] of Object.entries(tenis1)) {
+  console.log(chave, valor)
 }
 
-//ITERAR SOBRE AS CHAVES E VALORES MODO 3:
-for (valor of Object.entries(pessoa1)) {
-  console.log(valor[0], valor[1])
+//ITERANDO SOBRE AS CHAVES E VALORES DE UM ARRAY - MODO 3
+for (valor of Object.entries(tenis1)) {
+  console.log(valor[0] + ': ' + valor[1])
 }
