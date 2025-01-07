@@ -1,48 +1,41 @@
-class Pessoa {
-  constructor(nome, sobrenome) {
+const PrivadoVelocidade = Symbol('Velocidade')
+
+class Carro {
+  constructor(nome) {
     this.nome = nome
-    this.sobrenome = sobrenome
+    this[PrivadoVelocidade] = 0
   }
 
-  falar() {
-    console.log(`${this.nome} falou`)
+  set velocidade(valor) {
+    if(typeof valor !== 'number') return
+    if(valor > 100) return this[PrivadoVelocidade] = 100
+    if(valor < 0) return this[PrivadoVelocidade] = 0  
+    this[PrivadoVelocidade] = valor
   }
 
-  comer() {
-    console.log(`${this.nome} comeu`)
+  get velocidade() {
+    return this[PrivadoVelocidade]
   }
 
-  beber() {
-    console.log(`${this.nome} bebeu`)
+  acelerar() {
+    if(this[PrivadoVelocidade] >= 100) return
+    this[PrivadoVelocidade]++
   }
 
-  get nomeCompleto() {
-    return `${this.nome} ${this.sobrenome}`
+  frear() {
+    if(this[PrivadoVelocidade] < 0) return
+    this[PrivadoVelocidade]--
   }
 }
 
-function Pessoa2(nome, sobrenome) {
-  this.nome = nome
-  this.sobrenome = sobrenome
+const Fusca = new Carro('Fusca')
 
-  this.comer = function() {
-    console.log(`${this.nome} comeu`)
-  }
+/*for(let i = 0; i < 200; i++) {
+  Fusca.acelerar()
+}*/
 
-  this.beber = function() {
-    console.log(`${this.nome} bebeu`)
-  }
+/*for(let i = 100; i > 0; i--) {
+  Fusca.frear()
+}*/
 
-  Object.defineProperty(this, 'nomeCompleto', {
-    get: function() {
-      return `${this.nome} ${this.sobrenome}`
-    }
-  })
-}
-Pessoa2.prototype.falar = function() {
-  console.log(`${this.nome} falou`)
-}
-
-const p1 = new Pessoa('Guilherme', 'Henrique')
-const p2 = new Pessoa2('Guilherme', 'Henrique')
-console.log(p1.nome)
+console.log(Fusca)
