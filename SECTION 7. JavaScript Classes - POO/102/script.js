@@ -4,41 +4,45 @@ class Pessoa {
     this.sobrenome = sobrenome
   }
 
-  fala() {
-    console.log(`${this.nome} está falando`)
+  falar() {
+    console.log(`${this.nome} falou`)
   }
 
   comer() {
-    console.log(`${this.nome} está comendo`)
+    console.log(`${this.nome} comeu`)
   }
 
   beber() {
-    console.log(`${this.nome} está bebendo`)
+    console.log(`${this.nome} bebeu`)
   }
 
-  nomeCompleto() {
-    console.log(`${this.nome} ${this.sobrenome}`)
+  get nomeCompleto() {
+    return `${this.nome} ${this.sobrenome}`
   }
 }
 
 function Pessoa2(nome, sobrenome) {
   this.nome = nome
   this.sobrenome = sobrenome
+
+  this.comer = function() {
+    console.log(`${this.nome} comeu`)
+  }
+
+  this.beber = function() {
+    console.log(`${this.nome} bebeu`)
+  }
+
+  Object.defineProperty(this, 'nomeCompleto', {
+    get: function() {
+      return `${this.nome} ${this.sobrenome}`
+    }
+  })
 }
-Pessoa2.prototype.fala = function() {
-  console.log(`${this.nome} está falando`)
-}
-Pessoa2.prototype.comer = function() {
-  console.log(`${this.nome} está comendo`)
-}
-Pessoa2.prototype.beber = function() {
-  console.log(`${this.nome} está bebendo`)
-}
-Pessoa2.prototype.nomeCompleto = function() {
-  console.log(`${this.nome} ${this.sobrenome}`)
+Pessoa2.prototype.falar = function() {
+  console.log(`${this.nome} falou`)
 }
 
-const p1 = new Pessoa2('Guilherme', 'Henrique')
-const p2 = new Pessoa('Guilherme', 'Henrique')
-console.log(p1.nomeCompleto())
-console.log(p2.nomeCompleto())
+const p1 = new Pessoa('Guilherme', 'Henrique')
+const p2 = new Pessoa2('Guilherme', 'Henrique')
+console.log(p1.nome)
