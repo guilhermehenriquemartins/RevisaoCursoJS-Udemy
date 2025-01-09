@@ -34,6 +34,7 @@ class ValidaCPF {
   }
 }
 const cpf = new ValidaCPF('425.427.438-60')
+
 if(cpf.valida()) {
   console.log('CPF Válido')
 } else {
