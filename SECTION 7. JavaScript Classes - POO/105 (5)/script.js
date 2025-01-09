@@ -32,9 +32,7 @@ ValidaCPF.prototype.criaDigito = function(cpfParcial) {
   const digito = 11 - (total % 11)
   return digito > 9 ? '0' : String(digito)
 }
-
 const cpf = new ValidaCPF('168.054.482-98')
-
 if(cpf.valida()) {
   console.log('CPF Válido!')
 } else {
