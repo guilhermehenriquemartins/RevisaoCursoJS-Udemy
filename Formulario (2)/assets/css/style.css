@@ -12,13 +12,69 @@ body {
   background-attachment: fixed;
 }
 
+main {
+  background-color: white;
+  width: 500px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
 h1 {
   color: white;
   margin: 20px 0px;
   text-align: center;
 }
 
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+input {
+  width: 100%;
+  margin: 5px auto 2px auto;
+  padding: 7px 5px;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+input:focus-within {
+  outline: none;
+  border: 1px solid #480080;
+}
+
+input[type='submit'] {
+  background-color: #9000ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  height: 35px;
+  margin-top: 20px;
+}
+
+input[type='submit']:hover {
+  background-color: #480080;
+  transition-duration: .3s;
+}
+
+input[type='submit']:active {
+  background-color: white;
+  color: #480080;
+  transition-duration: 0s;
+}
+
+
 footer {
+  margin-top: 10px;
+  margin-bottom: 10px;
   text-align: center;
   color: white;
+  font-size: 12px;
+}
+
+.error-text {
+  font-size: 12px;
+  color: red;
 }
