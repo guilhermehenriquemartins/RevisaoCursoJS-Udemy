@@ -11,22 +11,27 @@
     <h1>Formulário de cadastro</h1>
   </header>
   <main>
-    <label for="nome">Nome</label>
-    <input type="text" id="nome">
-    <label for="sobrenome">Sobrenome</label>
-    <input type="text" id="sobrenome">
-    <label for="cpf">CPF</label>
-    <input type="text" id="cpf">
-    <label for="usuario">Usuario</label>
-    <input type="text" id="usuario">
-    <label for="senha">Senha</label>
-    <input type="password" id="senha">
-    <label for="repetir-senha">Repetir Senha</label>
-    <input type="password" id="repetir-senha">
-    <input type="submit" value="Enviar">
+    <form method="POST" autocomplete="off" id="formulario">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" class="validar">
+      <label for="sobrenome">Sobrenome</label>
+      <input type="text" id="sobrenome" class="validar">
+      <label for="cpf">CPF</label>
+      <input type="text" id="cpf" class="validar cpf">
+      <label for="usuario">Usuario</label>
+      <input type="text" id="usuario" class="validar usuario">
+      <label for="senha">Senha</label>
+      <input type="password" id="senha" class="validar">
+      <label for="repetir-senha">Repetir Senha</label>
+      <input type="password" id="repetir-senha" class="validar">
+      <input type="submit" value="Enviar">
+    </form>
   </main>
   <footer>
     <p>Site criado por &copy;GuilhermeHenrique</p>
   </footer>
+
+  <script src="assets/js/validaCPF.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
 </html>

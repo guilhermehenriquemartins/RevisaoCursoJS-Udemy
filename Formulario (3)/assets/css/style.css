@@ -27,6 +27,11 @@ main {
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
 }
 
+.error-text {
+  font-size: 12px;
+  color: red;
+}
+
 label {
   display: block;
 }
@@ -39,7 +44,8 @@ input {
 }
 
 input:focus-within {
-  
+  outline: none;
+  border: 1px solid #0077ff;
 }
 
 input[type='submit'] {
