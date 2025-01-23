@@ -28,10 +28,14 @@ class TV extends DispositivoEletronico {
     this.marca = marca
   }
 
+  static smart() {
+    console.log('É Smart: Sim')
+  }
 }
 
 const televisao = new TV('Smart TV', 43, 'Aiwa')
 televisao.ligar()
 televisao.desligar()
+TV.smart()
 
 console.log(televisao)
