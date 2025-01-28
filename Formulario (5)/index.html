@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Modelo</title>
+</head>
+<body>
+  <header>
+    <h1>Formulário de cadastro</h1>
+  </header>
+  <main>
+    <form method="POST" autocomplete="off" id="formulario">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" class="validar">
+      <label for="sobrenome">Sobrenome</label>
+      <input type="text" id="sobrenome" class="validar">
+      <label for="CPF">CPF</label>
+      <input type="text" id="CPF" class="validar cpf">
+      <label for="usuario">Usuário</label>
+      <input type="text" id="usuario" class="validar usuario">
+      <label for="senha">Senha</label>
+      <input type="password" id="senha" class="validar">
+      <label for="repetir-senha">Repetir Senha</label>
+      <input type="password" id="repetir-senha" class="validar">
+      <input type="submit" value="Enviar">
+    </form>
+  </main>
+  <footer>
+    <p>Site criado por &copy; GuilhermeHenrique</p>
+  </footer>
+
+  <script src="assets/js/validaCPF.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
