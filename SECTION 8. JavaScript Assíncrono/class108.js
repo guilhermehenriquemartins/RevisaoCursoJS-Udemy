@@ -6,25 +6,23 @@ function rand(min, max) {
 
 function dados(msg, tempo) {
   return new Promise((resolve, reject) => {
-    if(typeof msg !== 'string') reject('VALOR INVÁLIDO')
+    if(typeof msg !== 'string') reject(new TypeError('VALOR INVÁLIDO'))
 
     setTimeout(() => {
-    resolve(msg)
-  }, tempo)
+    console.log(msg)
+    resolve()
+  },tempo)
   })
 }
 
 dados('Frase 1', rand(1, 3))
   .then(resposta => {
-    console.log(resposta)
+    resposta
     return dados('Frase 2', rand(1, 3))
   })
   .then(resposta => {
-    console.log(resposta)
+    resposta
     return dados(1234, rand(1, 3))
-  })
-  .then(resposta => {
-    console.log(resposta)
   })
   .catch(resposta => {
     console.log('ERRO: ', resposta)
