@@ -6,34 +6,62 @@ function rand(min, max) {
 
 function dados(msg, tempo) {
   return new Promise((resolve, reject) => {
+    if(typeof msg !== 'string') reject('VALOR INVÁLIDO')
+
     setTimeout(() => {
-      if(typeof msg !== 'string') reject('VALOR INVÁLIDO')
-      resolve(msg)
-    }, tempo)
+    resolve(msg)
+  }, tempo)
   })
 }
 
-const promises = [
-  dados('Valor 2', 5000),
-  dados('Valor 3', 3000),
-  dados(1234, 1000),
-]
-
-Promise.race(promises)
+dados('Frase 1', rand(1, 3))
+  .then(resposta => {
+    console.log(resposta)
+    return dados('Frase 2', rand(1, 3))
+  })
+  .then(resposta => {
+    console.log(resposta)
+    return dados('Frase 3', rand(1, 3))
+  })
+  .then(resposta => {
+    console.log(resposta)
+    return dados('Frase 4', rand(1, 3))
+  })
+  .then(resposta => {
+    console.log(resposta)
+    return dados('Frase 5', rand(1, 3))
+  })
   .then(resposta => {
     console.log(resposta)
   })
-  .catch(reject => {
-    console.log('ERRO: ', reject)
+  .catch(resposta => {
+    console.log('ERRO: ', resposta)
   })
+
+
+const promise = [
+  dados('Frase 1', 1000),
+  dados('Frase 2', 3000),
+  dados('Frase 3', 2000),
+  dados(1234, 4000),
+  dados('Frase 5', 500),
+]
+
+Promise.race(promise)
+  .then(resposta => 
+    console.log(resposta)
+  ).catch(resposta => {
+    console.log('ERRO: ', resposta)
+  })
+
 
 function baixaPagina() {
   const emCache = true
 
   if(emCache) {
-    return Promise.reject('Página em cache')
+    return Promise.resolve('Página já está em cache')
   } else {
-    return dados('Página baixada', 3000)
+    return Promise.reject('Arquivo baixado')
   }
 }
 
@@ -41,6 +69,4 @@ baixaPagina()
   .then(dadosPagina => {
     console.log(dadosPagina)
   })
-  .catch(resposta => {
-    console.log(resposta)
-  })
+  .catch(e => console.log(e))
