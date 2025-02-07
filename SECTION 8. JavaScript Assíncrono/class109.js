@@ -9,27 +9,27 @@ function dados(msg, tempo) {
     if(typeof msg !== 'string') reject('VALOR INVÁLIDO')
 
     setTimeout(() => {
-    resolve(msg)
+    resolve('=>' + msg)
   }, tempo)
   })
 }
 
-dados('Frase 1', rand(1, 3))
+/*dados('Nome: Guilherme', rand(1, 3))
   .then(resposta => {
     console.log(resposta)
-    return dados('Frase 2', rand(1, 3))
+    return dados('Sobrenome: Henrique', rand(1, 3))
   })
   .then(resposta => {
     console.log(resposta)
-    return dados('Frase 3', rand(1, 3))
+    return dados(425, rand(1, 3))
   })
   .then(resposta => {
     console.log(resposta)
-    return dados('Frase 4', rand(1, 3))
+    return dados('Data de Nascimento: 17/06/1999', rand(1, 3))
   })
   .then(resposta => {
     console.log(resposta)
-    return dados('Frase 5', rand(1, 3))
+    return dados('Email: guilhermehenrique.fju@outlook.com', rand(1, 3))
   })
   .then(resposta => {
     console.log(resposta)
@@ -37,36 +37,64 @@ dados('Frase 1', rand(1, 3))
   .catch(resposta => {
     console.log('ERRO: ', resposta)
   })
+*/
 
+//Promise.all
 
-const promise = [
-  dados('Frase 1', 1000),
-  dados('Frase 2', 3000),
-  dados('Frase 3', 2000),
-  dados(1234, 4000),
-  dados('Frase 5', 500),
+/*
+const promises = [
+  dados('Nome: Guilherme', rand(1, 3)),
+  dados('Sobrenome: Henrique', rand(1, 3)),
+  dados('CPF: 425.427.438-60', rand(1, 3)),
+  dados(1234, rand(1, 3)),
+  dados('Email: guilhermehenrique.fju@outlook.com', rand(1, 3))
 ]
 
-Promise.race(promise)
-  .then(resposta => 
+Promise.all(promises)
+  .then(resposta => {
     console.log(resposta)
-  ).catch(resposta => {
-    console.log('ERRO: ', resposta)
   })
+  .catch(resposta => console.log(resposta))
+*/
 
+//Promise.race
+
+/*
+const promises = [
+  dados('Nome: Guilherme', 1500),
+  dados('Sobrenome: Henrique', 3000),
+  dados('CPF: 425.427.438-60', 1000),
+  dados(1234, 2000),
+  dados('Email: guilhermehenrique.fju@outlook.com', 5000)
+]
+
+Promise.race(promises)
+  .then(resposta => {
+    console.log(resposta)
+  })
+  .catch(resposta => {
+    console.log(resposta)
+  })
+*/
+
+//Promise.resolve
 
 function baixaPagina() {
-  const emCache = true
+  const emCache = false
 
   if(emCache) {
-    return Promise.resolve('Página já está em cache')
-  } else {
-    return Promise.reject('Arquivo baixado')
+    return Promise.resolve('Arquivo já está em Cache')
+  } {
+    return dados('Arquivo baixado', 3000)
   }
 }
 
 baixaPagina()
-  .then(dadosPagina => {
-    console.log(dadosPagina)
+  .then(resposta => {
+    console.log(resposta)
   })
-  .catch(e => console.log(e))
+  .catch(e => {
+    console.log(e)
+  })
+
+//Promise.reject
