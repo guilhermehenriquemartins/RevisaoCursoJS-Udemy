@@ -1,4 +1,4 @@
-document.addEventListener('click', e => {
+document.addEventListener('mouseover', e => {
   const el = e.target
   const tag = el.tagName.toLowerCase()
 

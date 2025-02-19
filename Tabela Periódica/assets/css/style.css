@@ -10,6 +10,7 @@
 h1 {
   text-align: center;
   margin-top: 20px;
+  font-size: 2em;
 }
 
 table {
@@ -20,10 +21,9 @@ table {
 td {
   position: relative;
   background-color: lightgray;
-  width: 45px;
-  height: 45px;
+  width: 50px;
+  height: 50px;
   text-align: center;
-  font-size: 1.3em;
   font-weight: bolder;
   cursor: pointer;
 }
@@ -45,5 +45,10 @@ a {
 }
 
 .resultado {
-  border: 1px solid black;
+  height: 100%;
+}
+
+#espaco {
+  background-color: white;
+  padding: 0px;
 }
