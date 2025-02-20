@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Formulário</title>
+</head>
+<body>
+  <h1>Formulário de Cadastro</h1>
+  <section class="container">
+    <form method="post" autocomplete="off" id="formulario">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" class="campo">
+      <label for="sobrenome">Sobrenome</label>
+      <input type="text" id="sobrenome" class="campo">
+      <label for="cpf">CPF</label>
+      <input type="text" id="cpf" class="campo cpf">
+      <label for="usuario">Usuário</label>
+      <input type="text" id="usuario" class="campo">
+      <label for="senha">Senha</label>
+      <input type="password" id="senha" class="campo">
+      <label for="repetir-senha">Repetir Senha</label>
+      <input type="password" id="repetir-senha" class="campo">
+      <input type="submit" value="Enviar">
+    </form>
+  </section>
+
+  <script src="assets/js/validaCPF.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
