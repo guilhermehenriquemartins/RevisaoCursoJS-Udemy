@@ -1,0 +1,1 @@
+{"version":3,"file":"bundle.js","mappings":";;;;;;;;;;IAAMA,MAAM,gBAAAC,YAAA,UAAAD,OAAA;EAAAE,eAAA,OAAAF,MAAA;AAAA,G","sources":["webpack://boilerplate1/./src/main.js"],"sourcesContent":["class Pessoa {\r\n  \r\n}"],"names":["Pessoa","_createClass","_classCallCheck"],"sourceRoot":""}
