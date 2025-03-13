@@ -1,0 +1,14 @@
+import GeraCPF from './modules/GeraCPF'
+
+import './assets/css/style.css'
+
+const botao = document.querySelector('.botao')
+
+botao.addEventListener('click', e => {
+  (function() {
+    const gera = new GeraCPF()
+    const cpfGerado = document.querySelector('.cpf-gerado')
+    cpfGerado.innerHTML = gera.GeraNovoCpf()
+  })()
+})
+
